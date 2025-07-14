@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Layout,
   Card,
   Upload,
   Button,
@@ -10,7 +9,6 @@ import {
   Typography,
   Row,
   Col,
-  Divider,
   Steps,
   Alert,
   Tag,
@@ -28,12 +26,10 @@ import {
   DeleteOutlined,
   CloudUploadOutlined,
   BarChartOutlined,
-  SafetyCertificateOutlined,
   RocketOutlined
 } from '@ant-design/icons';
 import * as XLSX from 'xlsx';
 
-const { Content } = Layout;
 const { Title, Text, Paragraph } = Typography;
 const { Step } = Steps;
 
@@ -88,7 +84,7 @@ function ProcessorPage() {
       console.error(error);
     }
     setLoading(false);
-    return false; // Previne upload automático
+    return false;
   };
 
   // Upload da planilha atual
@@ -107,7 +103,7 @@ function ProcessorPage() {
       console.error(error);
     }
     setLoading(false);
-    return false; // Previne upload automático
+    return false;
   };
 
   // Função principal de processamento
@@ -121,7 +117,6 @@ function ProcessorPage() {
     setCurrentStep(2);
 
     try {
-      // Identificar a coluna do número do processo
       const processNumberColumn = findProcessNumberColumn(newData);
       if (!processNumberColumn) {
         message.error('Coluna de número do processo não encontrada');
@@ -129,16 +124,11 @@ function ProcessorPage() {
         return;
       }
 
-      // 1. Remover duplicatas da planilha atual
       const uniqueNewData = removeDuplicates(newData, processNumberColumn);
-      
-      // 2. Adicionar coluna "Responsável" (vazia inicialmente)
       const dataWithResponsible = uniqueNewData.map(row => ({
         ...row,
         'Responsável': ''
       }));
-
-      // 3. Comparar com planilha antiga e adicionar coluna "Pendente"
       const finalData = compareAndAddPending(dataWithResponsible, oldData, processNumberColumn);
 
       setProcessedData(finalData);
@@ -157,7 +147,6 @@ function ProcessorPage() {
     setLoading(false);
   };
 
-  // Encontrar coluna do número do processo
   const findProcessNumberColumn = (data) => {
     if (data.length === 0) return null;
     const firstRow = data[0];
@@ -169,7 +158,6 @@ function ProcessorPage() {
     return possibleColumns[0] || Object.keys(firstRow)[0];
   };
 
-  // Remover duplicatas
   const removeDuplicates = (data, processColumn) => {
     const seen = new Set();
     return data.filter(row => {
@@ -182,7 +170,6 @@ function ProcessorPage() {
     });
   };
 
-  // Comparar e adicionar pendências
   const compareAndAddPending = (newData, oldData, processColumn) => {
     const oldProcessMap = new Map(oldData.map(row => [row[processColumn], row]));
 
@@ -199,7 +186,6 @@ function ProcessorPage() {
     });
   };
 
-  // Download do arquivo processado
   const downloadProcessedFile = () => {
     if (processedData.length === 0) {
       message.error('Nenhum dado processado para download');
@@ -215,7 +201,6 @@ function ProcessorPage() {
     message.success('Arquivo baixado com sucesso!');
   };
 
-  // Colunas da tabela de resultados
   const getTableColumns = () => {
     if (processedData.length === 0) return [];
     
@@ -286,15 +271,15 @@ function ProcessorPage() {
   };
 
   return (
-    <Content className="content-modern">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Hero Section */}
         <div className="hero-section">
           <Card className="hero-card">
             <div className="text-center">
               <RocketOutlined className="hero-icon" />
               <Title level={2} className="hero-title">
-                Processamento de Planilhas
+                Transforme suas Planilhas em Insights
               </Title>
               <Paragraph className="hero-description">
                 Compare, analise e processe suas planilhas Excel de forma inteligente e automatizada
@@ -325,14 +310,9 @@ function ProcessorPage() {
         {currentStep === 0 && (
           <Row gutter={[24, 24]} className="upload-section">
             <Col xs={24} lg={12}>
-              <Card 
-                className="upload-card"
-                hoverable
-              >
+              <Card className="upload-card" hoverable>
                 <div className="upload-header">
-                  <div className="upload-icon old-file">
-                    📋
-                  </div>
+                  <div className="upload-icon old-file">📋</div>
                   <div>
                     <Title level={4} className="!mb-1">Planilha Antiga</Title>
                     <Text type="secondary">Arquivo de referência para comparação</Text>
@@ -371,14 +351,9 @@ function ProcessorPage() {
             </Col>
 
             <Col xs={24} lg={12}>
-              <Card 
-                className="upload-card"
-                hoverable
-              >
+              <Card className="upload-card" hoverable>
                 <div className="upload-header">
-                  <div className="upload-icon new-file">
-                    📊
-                  </div>
+                  <div className="upload-icon new-file">📊</div>
                   <div>
                     <Title level={4} className="!mb-1">Planilha Atual</Title>
                     <Text type="secondary">Arquivo para processar e analisar</Text>
@@ -615,7 +590,7 @@ function ProcessorPage() {
           </div>
         )}
       </div>
-    </Content>
+    </div>
   );
 }
 

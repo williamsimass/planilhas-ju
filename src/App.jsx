@@ -8,104 +8,41 @@ import {
 import {
   FileExcelOutlined,
   HomeOutlined,
-  BarChartOutlined,
-  SyncOutlined,
+  ScissorOutlined,
   SafetyCertificateOutlined
 } from '@ant-design/icons';
-import HomePage from './components/HomePage';
 import ProcessorPage from './components/ProcessorPage';
-import DevelopmentPage from './components/DevelopmentPage';
+import DivisionPage from './components/DivisionPage';
 import './App.css';
 
 const { Header, Footer } = Layout;
 const { Title, Text } = Typography;
 
 function App() {
-  const [activeTab, setActiveTab] = useState('home');
-
-  const handleNavigateToProcessor = () => {
-    setActiveTab('processor');
-  };
-
-  const handleBackToHome = () => {
-    setActiveTab('home');
-  };
+  const [activeTab, setActiveTab] = useState('processor');
 
   const tabItems = [
-    {
-      key: 'home',
-      label: (
-        <span className="flex items-center space-x-2">
-          <HomeOutlined />
-          <span>Início</span>
-        </span>
-      ),
-      children: <HomePage onNavigateToProcessor={handleNavigateToProcessor} />
-    },
     {
       key: 'processor',
       label: (
         <span className="flex items-center space-x-2">
           <FileExcelOutlined />
-          <span>Processamento</span>
+          <span>Processador de Planilhas</span>
           <Badge status="success" />
         </span>
       ),
       children: <ProcessorPage />
     },
     {
-      key: 'analysis',
+      key: 'division',
       label: (
         <span className="flex items-center space-x-2">
-          <BarChartOutlined />
-          <span>Análise de Dados</span>
-          <Badge status="processing" text="Em breve" />
+          <ScissorOutlined />
+          <span>Divisão de Planilha</span>
+          <Badge status="success" />
         </span>
       ),
-      children: (
-        <DevelopmentPage
-          title="Análise de Dados"
-          description="Gere relatórios detalhados e visualizações dos dados processados com gráficos interativos e insights automáticos."
-          icon={<BarChartOutlined />}
-          onBackToHome={handleBackToHome}
-        />
-      )
-    },
-    {
-      key: 'sync',
-      label: (
-        <span className="flex items-center space-x-2">
-          <SyncOutlined />
-          <span>Sincronização</span>
-          <Badge status="processing" text="Em breve" />
-        </span>
-      ),
-      children: (
-        <DevelopmentPage
-          title="Sincronização Automática"
-          description="Sincronize dados entre diferentes sistemas e planilhas automaticamente, mantendo tudo sempre atualizado."
-          icon={<SyncOutlined />}
-          onBackToHome={handleBackToHome}
-        />
-      )
-    },
-    {
-      key: 'audit',
-      label: (
-        <span className="flex items-center space-x-2">
-          <SafetyCertificateOutlined />
-          <span>Auditoria</span>
-          <Badge status="processing" text="Em breve" />
-        </span>
-      ),
-      children: (
-        <DevelopmentPage
-          title="Auditoria e Compliance"
-          description="Monitore alterações, mantenha histórico completo de operações e garanta conformidade com regulamentações."
-          icon={<SafetyCertificateOutlined />}
-          onBackToHome={handleBackToHome}
-        />
-      )
+      children: <DivisionPage />
     }
   ];
 
@@ -119,7 +56,7 @@ function App() {
             </div>
             <div>
               <Title level={3} className="!mb-0 !text-white font-bold">
-                Processador de Planilhas Excel
+                • Sistema inteligente de Planilhas • 
               </Title>
               <Text className="text-blue-100 text-sm"></Text>
             </div>
@@ -149,7 +86,7 @@ function App() {
       <Footer className="modern-footer">
         <div className="max-w-7xl mx-auto text-center">
           <Text className="footer-text">
-            <strong>Desenvolvido por William Simas</strong> • Sistema de Processamento de Planilhas Excel
+            <strong>Desenvolvido por William Simas</strong> • Sistema de Processamento de Planilhas 
           </Text>
           <br />
           <Text type="secondary" className="footer-subtext">
