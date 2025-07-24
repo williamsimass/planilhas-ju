@@ -11,9 +11,10 @@ import {
   ScissorOutlined,
   SafetyCertificateOutlined
 } from '@ant-design/icons';
-import ProcessorPage from './components/ProcessorPage';
+import { ThemeProvider } from './components/ThemeProvider';
+import EnhancedProcessorPage from './components/EnhancedProcessorPage';
 import DivisionPage from './components/DivisionPage';
-import './App.css';
+import './App-enhanced.css';
 
 const { Header, Footer } = Layout;
 const { Title, Text } = Typography;
@@ -31,7 +32,7 @@ function App() {
           <Badge status="success" />
         </span>
       ),
-      children: <ProcessorPage />
+      children: <EnhancedProcessorPage />
     },
     {
       key: 'division',
@@ -47,7 +48,8 @@ function App() {
   ];
 
   return (
-    <Layout className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <ThemeProvider>
+      <Layout className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <Header className="header-modern">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
@@ -95,6 +97,7 @@ function App() {
         </div>
       </Footer>
     </Layout>
+    </ThemeProvider>
   );
 }
 
