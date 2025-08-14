@@ -9,11 +9,13 @@ import {
   FileExcelOutlined,
   HomeOutlined,
   ScissorOutlined,
-  SafetyCertificateOutlined
+  SafetyCertificateOutlined,
+  FunctionOutlined
 } from '@ant-design/icons';
 import { ThemeProvider } from './components/ThemeProvider';
 import EnhancedProcessorPage from './components/EnhancedProcessorPage';
 import DivisionPage from './components/DivisionPage';
+import NewAutomationPage from './components/NewAutomationPage'; // Importar o novo componente
 import './App-enhanced.css';
 
 const { Header, Footer } = Layout;
@@ -44,6 +46,17 @@ function App() {
         </span>
       ),
       children: <DivisionPage />
+    },
+    {
+      key: 'new_automation',
+      label: (
+        <span className="flex items-center space-x-2">
+          <FunctionOutlined />
+          <span>Nova Automação Excel</span>
+          <Badge status="processing" />
+        </span>
+      ),
+      children: <NewAutomationPage />
     }
   ];
 
@@ -102,4 +115,5 @@ function App() {
 }
 
 export default App;
+
 
