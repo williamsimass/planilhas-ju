@@ -10,42 +10,40 @@ const NewAutomationPage = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const fileInputRef = useRef(null);
 
-  // Listas de profissionais do arquivo DIVISAO.txt
+  // Listas de profissionais do arquivo DIVISAO.txt - CORRIGIDAS
   const advogadosPautistas = [
-    "ALINE PRATES PEREIRA", "AMANDA VITORIA CARDOSO DOS SANTOS", "ANDRÉ DOCE SOUZA",
-    "ARTHUR MATTOS REIS", "BRENO GOMES DOS SANTOS (B1)", "BRENO GOMES SANTOS (B2)",
-    "CARLOS LUÍS SOUZA NEVES", "DAYSE DA ROCHA CUMMINGS", "ELIVAN DOS SANTOS LIMOEIRO",
-    "EVA PATRICIA BARBOSA DE CASTRO", "ISAAC KELVIN MACHADO DA CUNHA", "ISLA SANTOS COELHO SILVA",
-    "LARISSA LOPEZ DO PRADO BISPO", "LINDIELE SANTOS LOPES", "MARIANA KAITLYTN ALVES MATOS"
+    "ALINE PRATES PEREIRA", "DANIEL ARAUJO DALTRO", "GLEYCE SAMARA DOS SANTOS FERREIRA",
+    "GYZELLA PARANHOS DOS SANTOS SOUSA", "JANAINA ROCHA DA SILVA AKINTOYESE", "JOELMA COSTA LIMA GREGO",
+    "MONIQUE FREITAS MENEZES", "VIVIAN DA SILVA CASTRO", "CAMILA GOMES DA SILVA LIMA",
+    "FABRÍCIO ALVES MARIANO", "CAROLINE MOTA", "JULIE ANNE NOVAIS REGO MARQUES",
+    "MILA BASTOS SAMPAIO ORRICO", "DÉBORA DE JESUS SANTOS", "MAIANE SANTOS CARVALHO"
   ];
 
   const advogadosInternos = [
-    "ADRIANA SANTOS SILVA", "ALAN KARDEC OLIVEIRA SANTOS", "ALBERTO SILVA SANTOS",
-    "ALEXANDRE AQUINO DOS SANTOS PEREIRA", "ALINE PRATES PEREIRA", "AMANDA VITORIA CARDOSO DOS SANTOS",
-    "ANA CAROLINA SANTOS SILVA", "ANA LUIZA OLIVEIRA SANTOS", "ANDRÉ DOCE SOUZA",
-    "ARTHUR MATTOS REIS", "BEATRIZ SANTOS OLIVEIRA", "BRENO GOMES DOS SANTOS (B1)",
-    "BRENO GOMES SANTOS (B2)", "BRUNO SANTOS SILVA", "CARLOS EDUARDO SANTOS OLIVEIRA",
-    "CARLOS LUÍS SOUZA NEVES", "CAROLINA SANTOS SILVA", "DAYSE DA ROCHA CUMMINGS",
-    "DIEGO SANTOS OLIVEIRA", "EDUARDO SANTOS SILVA", "ELIVAN DOS SANTOS LIMOEIRO",
-    "EVA PATRICIA BARBOSA DE CASTRO", "FABIANA SANTOS OLIVEIRA", "FERNANDO SANTOS SILVA",
-    "GABRIEL SANTOS OLIVEIRA", "GUILHERME SANTOS SILVA", "HELENA SANTOS OLIVEIRA",
-    "ISAAC KELVIN MACHADO DA CUNHA", "ISLA SANTOS COELHO SILVA", "JOÃO SANTOS SILVA",
-    "JULIANA SANTOS OLIVEIRA", "LARISSA LOPEZ DO PRADO BISPO", "LEONARDO SANTOS SILVA",
-    "LINDIELE SANTOS LOPES", "LUCAS SANTOS OLIVEIRA", "MARCELO SANTOS SILVA",
-    "MARIANA KAITLYTN ALVES MATOS", "MARIO SANTOS OLIVEIRA", "MATHEUS PEREIRA MENDES",
-    "MAYALA ROCHA SAMPAIO ESTRELA", "NATALIA SANTOS SILVA", "PATRICIA SANTOS OLIVEIRA",
-    "PAULO SANTOS SILVA", "PEDRO SANTOS OLIVEIRA", "RAFAEL SANTOS SILVA",
-    "RAQUEL SANTOS OLIVEIRA", "REBECA VITÓRIA MENDES VASCONCELOS", "RICARDO SANTOS SILVA",
-    "RODRIGO SANTOS OLIVEIRA", "SANDRA SANTOS SILVA", "SERGIO SANTOS OLIVEIRA",
-    "TATIANA SANTOS SILVA", "THIAGO SANTOS OLIVEIRA", "VANESSA SANTOS SILVA",
-    "VICTOR SANTOS OLIVEIRA", "VIVIANE SANTOS SILVA", "WAGNER SANTOS OLIVEIRA",
-    "WELLINGTON SANTOS SILVA", "YARA SANTOS OLIVEIRA", "ZELIA SANTOS SILVA",
-    "ADRIANO SANTOS SILVA", "ALESSANDRA SANTOS OLIVEIRA", "ALEXANDRE SANTOS SILVA",
-    "ALINE SANTOS OLIVEIRA", "ANDERSON SANTOS SILVA", "ANDREA SANTOS OLIVEIRA",
-    "ANTONIO SANTOS SILVA", "BARBARA SANTOS OLIVEIRA", "CAMILA SANTOS SILVA",
-    "CESAR SANTOS OLIVEIRA", "CLAUDIA SANTOS SILVA", "CRISTINA SANTOS OLIVEIRA",
-    "DANIEL SANTOS SILVA", "DENISE SANTOS OLIVEIRA", "EDSON SANTOS SILVA",
-    "ELAINE SANTOS OLIVEIRA", "FABIO SANTOS SILVA", "FERNANDA SANTOS OLIVEIRA"
+    "ANA JULYA MUNIZ DA SILVA", "CARLOS ALBERTO PERRELLI FERNANDES FILHO", "REBECA MAIA HORTA",
+    "VICTORIA MENDES ROCHA", "JULIANA DE JESUS SILVA", "THOMAZ JOSÉ DA SILVA BOMFIM",
+    "VANESSA BARREIRA COUTO FERREIRA RIBEIRO", "SAADIA IRANI MACARIO BRANDÃO", "ADRIELLE SANTOS BRANDÃO",
+    "ALICE NABUCO ABREU SOUSA", "ALINE KAREN SANTOS RIBEIRO", "AMANDA SOUZA MOINHOS",
+    "AMANDA TANAJURA FLOR", "ANA PAULA SANTOS DE JESUS", "ANA VICTORIA MARBACK DOS SANTOS",
+    "ANGELA KARINE DA SILVA FIGUEIREDO", "ANNA BEATRIZ DUPLAT ABREU", "ANTONIO LUCAS DINIZ GONÇALVES BATISTA",
+    "CAROLINE PEREIRA CARVALHO", "CLEBERSON MACHADO PARENTE", "DAIANE SANTANA DE JESUS",
+    "DIEGO LOPES AZEVEDO", "ELOÁ MASCARENHAS MUNIZ", "FABRICIO SOUSA SANTOS AMARAL",
+    "GILVAN ALMEIDA DE SOUZA", "GUSTAVO BARBOSA DE PAULA", "ISABELLA RENARIA TEIXEIRA ROCHA",
+    "KAMILLA DE ASSIS SEMBLANO SILVA", "LARISSA PAIM PITANGA RIBEIRO LIMA", "LEILA DOS SANTOS GOMES",
+    "LEONARDO FERREIRA DOS SANTOS", "LETÍCIA CASSIMIRO PÊGO", "LETICIA DE PINHO GONZAGA",
+    "LORENA DE BRITO NASCIMENTO", "LUCAS DE MELLO BOTELHO", "MANUELA CARLA SOUSA RODRIGUES DE ARGOLLO",
+    "NATHALIA DOS SANTOS SOUZA", "POLIANA ANDRADE BARBOSA", "PRISCILA WANDERLEY SARAIVA",
+    "SILVANIA COSTA BARBOSA", "STEPHANIE NOVAES OLIVEIRA", "TAILANE DA COSTA DOS SANTOS",
+    "TAINA OLIVEIRA BRITO", "TAISE JOSE DOS SANTOS", "THIAGO GOMES SILVA",
+    "VICTOR MOURA SENNA", "VINICIUS MEIRA FONTES", "VICTOR PETTER ANDRÉ DÓREA",
+    "BRUNA REIS OLIVEIRA MIRANDA", "TIAGO TARGINO CAVALCANTE DE SANTANA", "BEATRIZ CONCEIÇÃO DE MATOS",
+    "BEATRIZ SANTOS PEIXOTO", "LARISSA DALTRO SANTANA", "LIVIA ANDRADE OLIVEIRA",
+    "MONIQUE FREITAS", "BEATRIZ DA SILVA NUNES", "BEATRIZ SILVA REIS BATISTA",
+    "JARDIEL LUQUINE DA SILVA NETO", "JORGE FRANCISCO CARDOZO DE SOUZA", "DÉBORA SILVA FREITAS MOLINA ESCOBAR",
+    "FLÁVIA DA SILVA BRITO", "JEFFERSON LUÍS CHAGAS DOS SANTOS", "GABRIELA VIANA MENEZES",
+    "LUANA PEDREIRA MASCARENHAS", "MICHAELLA COSTA TEIXEIRA", "VICTORIA GISELLE DOS REIS DE SOUZA",
+    "AMANDA FEDULO FERNANDES", "KEY GONÇALVES FERNANDES FILHO", "THAIS EMANUELE DA CRUZ DOS SANTOS",
+    "ALEXANDRE JATOBÁ GOMES", "LARISSA LEITE SANTANA", "PALOMA ROCHA ANDRADE"
   ];
 
   const prepostosPautistas = [
@@ -59,37 +57,34 @@ const NewAutomationPage = () => {
   const prepostosIntegrais = [
     "MAYALA ROCHA SAMPAIO ESTRELA", "MATHEUS PEREIRA MENDES", "RAAB SOUZA DE JESUS",
     "ALEXANDRE AQUINO DOS SANTOS PEREIRA", "ARTHUR MATTOS REIS", "ISAAC KELVIN MACHADO DA CUNHA",
-    "ISLA SANTOS COELHO SILVA", "LARISSA LOPEZ DO PRADO BISPO", "ALINE PRATES PEREIRA",
-    "AMANDA VITORIA CARDOSO DOS SANTOS", "ANDRÉ DOCE SOUZA", "BRENO GOMES DOS SANTOS (B1)",
-    "BRENO GOMES SANTOS (B2)", "CARLOS LUÍS SOUZA NEVES", "DAYSE DA ROCHA CUMMINGS",
-    "ELIVAN DOS SANTOS LIMOEIRO", "EVA PATRICIA BARBOSA DE CASTRO", "LINDIELE SANTOS LOPES",
-    "MARIANA KAITLYTN ALVES MATOS", "REBECA VITÓRIA MENDES VASCONCELOS", "ADRIANA SANTOS SILVA",
-    "ALAN KARDEC OLIVEIRA SANTOS", "ALBERTO SILVA SANTOS", "ANA CAROLINA SANTOS SILVA",
-    "ANA LUIZA OLIVEIRA SANTOS", "BEATRIZ SANTOS OLIVEIRA", "BRUNO SANTOS SILVA",
-    "CARLOS EDUARDO SANTOS OLIVEIRA", "CAROLINA SANTOS SILVA", "DIEGO SANTOS OLIVEIRA",
-    "EDUARDO SANTOS SILVA", "FABIANA SANTOS OLIVEIRA", "FERNANDO SANTOS SILVA",
-    "GABRIEL SANTOS OLIVEIRA", "GUILHERME SANTOS SILVA", "HELENA SANTOS OLIVEIRA",
-    "JOÃO SANTOS SILVA", "JULIANA SANTOS OLIVEIRA", "LEONARDO SANTOS SILVA",
-    "LUCAS SANTOS OLIVEIRA", "MARCELO SANTOS SILVA", "MARIO SANTOS OLIVEIRA"
+    "ISLA SANTOS COELHO SILVA", "LARISSA LOPEZ DO PRADO BISPO", "MARIANA OLIVEIRA DOS REIS",
+    "TAISE PINTO DA SILVA", "ISABELLA AGUIAR DE ALMEIDA CARNEIRO", "MARIA CLARA SOTELINO PASSOS",
+    "RODRIGO MARTINS ALMEIDA", "SARA PEREIRA DA COSTA", "LÉA CALDAS",
+    "ERYCKA DOMINIKE NBARBOSA DE SOUSA", "JÉSSICA CRISTIANE BORGES DE SOUZA", "YAGO GABRIEL ROCHA CARVALHO",
+    "ROBERTO RODRIGUES DE LIMA FILHO", "LARISE SILVA DOS SANTOS", "JANAINA CARIBÉ DE ANDRADE",
+    "EDCARLOS DE ARAÚJO BATISTA", "LEONARDO JUNQUEIRA AYRES SÁ WIERING", "LYARA ROCHA DOS SANTOS E SILVA",
+    "LUIZ ANTONIO PEDROZA NUNES NETO", "EDUARDO AMBUS DE QUEIROZ", "ANA VITÓRIA CARVALHO",
+    "DAIANA MACHADO SANTANA", "BRENDA NASCIMENTO DA CRUZ BEZERRA SANTOS", "RAFAEL SOUZA DANTAS",
+    "RAFFAELA PEÇANHA", "JESSÉ CARDOSO DE SANTANA", "LUIZA BAHIA",
+    "RAFAEL CRISOSTOMO DE QUEIROZ", "ANA LUÍSA DIAS BASTOS", "CAROL PIRES DA CRUZ BRITO",
+    "KÉSSIA CONCEIÇÃO DA CRUZ", "ADRIELLE NERI DA SILVA SANTOS"
   ];
 
   const prepostosEstagiarios = [
-    "NATALIA SANTOS SILVA", "PATRICIA SANTOS OLIVEIRA", "PAULO SANTOS SILVA",
-    "PEDRO SANTOS OLIVEIRA", "RAFAEL SANTOS SILVA", "RAQUEL SANTOS OLIVEIRA",
-    "RICARDO SANTOS SILVA", "RODRIGO SANTOS OLIVEIRA", "SANDRA SANTOS SILVA",
-    "SERGIO SANTOS OLIVEIRA", "TATIANA SANTOS SILVA", "THIAGO SANTOS OLIVEIRA",
-    "VANESSA SANTOS SILVA", "VICTOR SANTOS OLIVEIRA", "VIVIANE SANTOS SILVA",
-    "WAGNER SANTOS OLIVEIRA", "WELLINGTON SANTOS SILVA", "YARA SANTOS OLIVEIRA",
-    "ZELIA SANTOS SILVA", "ADRIANO SANTOS SILVA", "ALESSANDRA SANTOS OLIVEIRA",
-    "ALEXANDRE SANTOS SILVA", "ALINE SANTOS OLIVEIRA", "ANDERSON SANTOS SILVA",
-    "ANDREA SANTOS OLIVEIRA", "ANTONIO SANTOS SILVA", "BARBARA SANTOS OLIVEIRA",
-    "CAMILA SANTOS SILVA", "CESAR SANTOS OLIVEIRA", "CLAUDIA SANTOS SILVA",
-    "CRISTINA SANTOS OLIVEIRA", "DANIEL SANTOS SILVA", "DENISE SANTOS OLIVEIRA",
-    "EDSON SANTOS SILVA", "ELAINE SANTOS OLIVEIRA", "FABIO SANTOS SILVA",
-    "FERNANDA SANTOS OLIVEIRA", "GUSTAVO SANTOS SILVA", "HELENA SANTOS OLIVEIRA",
-    "IGOR SANTOS SILVA", "JESSICA SANTOS OLIVEIRA", "KARINA SANTOS SILVA",
-    "LEANDRO SANTOS OLIVEIRA", "MONICA SANTOS SILVA", "NELSON SANTOS OLIVEIRA",
-    "OTAVIO SANTOS OLIVEIRA", "PRISCILA SANTOS OLIVEIRA", "RENATO SANTOS SILVA"
+    "ELIANE DE OLIVEIRA FERREIRA", "IGOR RIBEIRO CHAVES RIBEIRO", "JOÃO HENRIQUE DE SANTANA",
+    "SAMUEL SANTOS CLEMENTINO", "IRIS NASCHA FRANÇA BOMFIM", "LUCAS GUILHERME SANTOS ALVES",
+    "ÉRICA RODRIGUES DOS SANTOS", "JAMILE DE CARVALHO BARAÚNA", "SERGIO SOARES OLIVEIRA",
+    "GEOVANA PINHEIRO SANTANA PAZ DE ALMEIDA", "HENRICO DAMASCENO DE CARVALHO", "PABLO KAUAN DOS SANTOS VELOSO",
+    "MARIA EDUARDA BASTOS BRITO DE SANTANA", "IZABELLY CARDOSO LEÃO", "MARIA CLARA DA HORA DOS SANTOS",
+    "ANA JÚLIA ANJOS DE SOUSA SANTOS", "CAROLINA MAYA DE CARVALHO", "EDSON DE OLIVEIRA SANTOS",
+    "FERNANDA VIEIRA VINHAS", "JULIANA KNAPP GAGLIANO DE ALVARENGA", "JULIANA MARIA AFFONSO BORGES",
+    "LAURA GREICE PAIXÃO", "LORENA SAMPAIO GUEDES AZEVEDO", "LUZIA ISABEL MOURA SILVA",
+    "MARCELLE NICOLLY COELHO DE JESUS", "MATEUS FAHEL", "SOFIA HELENA AMADO",
+    "RAFAELA MELO", "VÍTOR BACELLAR SILVEIRA DULTRA", "AYLA MIKAELE MATOS DOS SANTOS",
+    "BEATRIZ GOUVEIA", "BRUNO RAMOS BRUM FILHO", "JOÃO GABRIEL DE JESUS DIAS",
+    "LARISSA DIAS DE JESUS MIRANDA", "LARISSA FERNANDES MESQUITA", "LUANDA MILCA OLIVEIRA COSTA SANTOS",
+    "MARIA EDUARDA AMORIM FERNANDES", "LÍCIA SOUZA MENDONÇA NASCIMENTO", "NINA ALMEIDA VILELA TORRES",
+    "CECÍLIA ALVES DE JESUS NASCIMENTO", "GABRIEL COSTA PROTÁSIO DOS SANTOS", "LETÍCIA OLIVEIRA BRUNELLI SANTOS"
   ];
 
   const tiposAudiencia = [
@@ -97,6 +92,9 @@ const NewAutomationPage = () => {
     'Audiência Virtual - Tentativa de Conciliação',
     'Audiência Virtual - Instrução'
   ];
+
+  // Lista APENAS de advogados (pautistas + internos) - SEM prepostos
+  const todosAdvogados = [...advogadosPautistas, ...advogadosInternos];
 
   // Função para converter número decimal do Excel para formato HH:MM
   const formatExcelTime = (excelTime) => {
@@ -295,57 +293,85 @@ const NewAutomationPage = () => {
     });
   };
 
-  // Função para distribuir audiências respeitando intervalo de 1 hora
+  // Função CORRIGIDA para distribuir audiências respeitando intervalo de 1 hora
   const distribuirAudiencias = (audiencias, advogados) => {
     if (!advogados || advogados.length === 0) return audiencias;
 
+    console.log(`Distribuindo ${audiencias.length} audiências entre ${advogados.length} advogados`);
+
     // Ordenar audiências por data e hora
     const audienciasOrdenadas = [...audiencias].sort((a, b) => {
-      const dataA = new Date(`${formatExcelDate(a['DATA'] || a['TRA.Agenda data'] || a.Data_Audiencia || a.Data)} ${formatExcelTime(a['HORA LOCAL'] || a['TRA.Hora da agenda'] || a.Hora || '00:00')}`);
-      const dataB = new Date(`${formatExcelDate(b['DATA'] || b['TRA.Agenda data'] || b.Data_Audiencia || b.Data)} ${formatExcelTime(b['HORA LOCAL'] || b['TRA.Hora da agenda'] || b.Hora || '00:00')}`);
-      return dataA - dataB;
-    });
-
-    // Controle de horários por advogado
-    const ultimoHorario = {};
-    advogados.forEach(adv => {
-      ultimoHorario[adv] = null;
-    });
-
-    let advogadoIndex = 0;
-    const audienciasDistribuidas = audienciasOrdenadas.map(audiencia => {
-      const dataHoraAudiencia = new Date(`${formatExcelDate(audiencia['DATA'] || audiencia['TRA.Agenda data'] || audiencia.Data_Audiencia || audiencia.Data)} ${formatExcelTime(audiencia['HORA LOCAL'] || audiencia['TRA.Hora da agenda'] || audiencia.Hora || '00:00')}`);
+      // Criar strings de data/hora para comparação
+      const dataHoraA = `${formatExcelDate(a['DATA'] || a['TRA.Agenda data'] || a.Data_Audiencia || a.Data)} ${formatExcelTime(a['HORA LOCAL'] || a['TRA.Hora da agenda'] || a.Hora || '00:00')}`;
+      const dataHoraB = `${formatExcelDate(b['DATA'] || b['TRA.Agenda data'] || b.Data_Audiencia || b.Data)} ${formatExcelTime(b['HORA LOCAL'] || b['TRA.Hora da agenda'] || b.Hora || '00:00')}`;
       
-      // Encontrar próximo advogado disponível (respeitando intervalo de 1 hora)
-      let tentativas = 0;
-      while (tentativas < advogados.length) {
-        const advogadoAtual = advogados[advogadoIndex];
-        const ultimoHorarioAdvogado = ultimoHorario[advogadoAtual];
+      // Converter para objetos Date para comparação
+      const dateA = new Date(dataHoraA.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$3-$2-$1'));
+      const dateB = new Date(dataHoraB.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$3-$2-$1'));
+      
+      return dateA - dateB;
+    });
+
+    // Controle rigoroso de horários por advogado
+    const agendaAdvogados = {};
+    advogados.forEach(adv => {
+      agendaAdvogados[adv] = []; // Array de horários ocupados por cada advogado
+    });
+
+    const audienciasDistribuidas = audienciasOrdenadas.map((audiencia, idx) => {
+      // Criar data/hora da audiência atual
+      const dataHoraStr = `${formatExcelDate(audiencia['DATA'] || audiencia['TRA.Agenda data'] || audiencia.Data_Audiencia || audiencia.Data)} ${formatExcelTime(audiencia['HORA LOCAL'] || audiencia['TRA.Hora da agenda'] || audiencia.Hora || '00:00')}`;
+      const dataHoraAudiencia = new Date(dataHoraStr.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$3-$2-$1'));
+      
+      console.log(`Processando audiência ${idx + 1}: ${dataHoraStr}`);
+
+      // Encontrar advogado disponível que respeite o intervalo de 1 hora
+      let advogadoEscolhido = null;
+      
+      for (let i = 0; i < advogados.length; i++) {
+        const advogado = advogados[i];
+        const horariosOcupados = agendaAdvogados[advogado];
         
-        if (!ultimoHorarioAdvogado || 
-            (dataHoraAudiencia - ultimoHorarioAdvogado) >= 60 * 60 * 1000) { // 1 hora em ms
+        // Verificar se este advogado pode pegar esta audiência
+        let podeAtribuir = true;
+        
+        for (let horarioOcupado of horariosOcupados) {
+          const diferencaMs = Math.abs(dataHoraAudiencia - horarioOcupado);
+          const diferencaMinutos = diferencaMs / (1000 * 60);
           
-          ultimoHorario[advogadoAtual] = dataHoraAudiencia;
-          const advogadoFinal = `${advogadoAtual}`;
-          
-          advogadoIndex = (advogadoIndex + 1) % advogados.length;
-          
-          return {
-            ...audiencia,
-            Advogado: advogadoFinal
-          };
+          // Se a diferença for menor que 60 minutos (1 hora), não pode atribuir
+          if (diferencaMinutos < 60) {
+            console.log(`Advogado ${advogado} não pode pegar audiência ${dataHoraStr} - conflito com horário ${horarioOcupado.toLocaleString()} (diferença: ${diferencaMinutos.toFixed(1)} min)`);
+            podeAtribuir = false;
+            break;
+          }
         }
         
-        advogadoIndex = (advogadoIndex + 1) % advogados.length;
-        tentativas++;
+        if (podeAtribuir) {
+          advogadoEscolhido = advogado;
+          agendaAdvogados[advogado].push(dataHoraAudiencia);
+          console.log(`Audiência ${dataHoraStr} atribuída para ${advogado}`);
+          break;
+        }
       }
       
-      // Se não encontrou advogado disponível, usar o primeiro mesmo assim
-      const advogadoFinal = `${advogados[0]}`;
+      // Se nenhum advogado está disponível, forçar atribuição para o primeiro (situação de sobrecarga)
+      if (!advogadoEscolhido) {
+        advogadoEscolhido = advogados[0];
+        agendaAdvogados[advogados[0]].push(dataHoraAudiencia);
+        console.warn(`ATENÇÃO: Audiência ${dataHoraStr} forçada para ${advogados[0]} - todos os advogados estavam ocupados`);
+      }
+      
       return {
         ...audiencia,
-        Advogado: advogadoFinal
+        AdvogadoAtribuido: advogadoEscolhido
       };
+    });
+
+    // Log final da distribuição
+    console.log('Distribuição final:');
+    advogados.forEach(adv => {
+      console.log(`${adv}: ${agendaAdvogados[adv].length} audiências`);
     });
 
     return audienciasDistribuidas;
@@ -369,6 +395,8 @@ const NewAutomationPage = () => {
         const advogadosSelecionados = selectedAdvogados[cliente]?.selecionados || [];
         
         if (advogadosSelecionados.length > 0) {
+          console.log(`Processando cliente: ${cliente} com ${audienciasCliente.length} audiências e ${advogadosSelecionados.length} advogados`);
+          
           const audienciasDistribuidas = distribuirAudiencias(audienciasCliente, advogadosSelecionados);
           
           // Atualizar dados processados
@@ -377,10 +405,10 @@ const NewAutomationPage = () => {
             if (dadosProcessados[index]) {
               dadosProcessados[index] = {
                 ...dadosProcessados[index],
-                Advogado: audienciaDistribuida.Advogado,
-                Preposto: prepostoSelections[cliente]?.[audienciaDistribuida['TIPO DE AUD']] || '',
-                Observacao: `Cliente: ${cliente}`,
-                'HORA SSA': formatExcelTime(dadosProcessados[index]['HORA LOCAL'] || '00:00')
+                'ADVOGADO': audienciaDistribuida.AdvogadoAtribuido,
+                'PREPOSTO': prepostoSelections[cliente]?.[audienciaDistribuida['TIPO DE AUD']] || '',
+                'OBSERVAÇÃO': `Cliente: ${cliente}`,
+                'HORA SSA FORMATADA': formatExcelTime(dadosProcessados[index]['HORA LOCAL'] || dadosProcessados[index]['HORA SSA'] || '00:00')
               };
             }
           });
@@ -491,13 +519,13 @@ const NewAutomationPage = () => {
                 </div>
               </div>
 
-              {/* Lista de advogados disponíveis */}
+              {/* Lista APENAS de advogados - CORRIGIDA */}
               <div className="mb-4 bg-white p-3 rounded border">
                 <label className="block text-sm font-medium mb-2">
                   Selecionar advogados (clique para selecionar/deselecionar):
                 </label>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 max-h-60 overflow-y-auto">
-                  {[...advogadosPautistas, ...advogadosInternos].map(advogado => {
+                  {todosAdvogados.map(advogado => {
                     const isSelected = selectedAdvogados[cliente]?.selecionados?.includes(advogado) || false;
                     return (
                       <button
@@ -616,10 +644,12 @@ const NewAutomationPage = () => {
           <li>• A planilha é analisada automaticamente ao fazer upload</li>
           <li>• Você pode visualizar todas as audiências de cada cliente</li>
           <li>• Selecione quantos advogados deseja para cada cliente</li>
-          <li>• Escolha especificamente quais advogados serão atribuídos</li>
-          <li>• As audiências são distribuídas automaticamente respeitando intervalo de 1 hora</li>
+          <li>• Escolha especificamente quais advogados serão atribuídos (APENAS advogados, sem prepostos)</li>
+          <li>• <strong>As audiências são distribuídas automaticamente respeitando intervalo MÍNIMO de 1 hora entre audiências do mesmo advogado</strong></li>
           <li>• As datas e horas são convertidas automaticamente do formato Excel</li>
           <li>• A planilha final é unificada com todas as atribuições</li>
+          <li>• As horas na planilha de saída são formatadas como HH:MM</li>
+          <li>• Logs detalhados da distribuição aparecem no console do navegador (F12)</li>
         </ul>
       </div>
     </div>
